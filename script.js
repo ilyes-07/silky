@@ -18,12 +18,25 @@ function sendMessage() {
 }
 
 function getSilkyResponse(input) {
-    // You can modify this function to use the chat_with_silky function you created earlier
-    if (input.toLowerCase().includes("hello")) {
+    // Convert the input to lowercase to handle case-insensitivity
+    input = input.toLowerCase();
+    
+    if (input.includes("hello")) {
         return "Hey hey! Good to see ya!";
-    } else if (input.toLowerCase().includes("joke")) {
+    } else if (input.includes("joke")) {
         return "Why don’t spiders get caught in their own webs? Because they know the *net* code!";
+    } else if (input.includes("spider fact")) {
+        // Return a random spider fact
+        const facts = [
+            "Did you know spiders have hydraulic legs? They use fluid pressure to move!",
+            "Some spiders can fly using a technique called ballooning — they ride the wind on silk threads.",
+            "The Peacock Spider can dance! Male peacock spiders do colorful dances to attract mates.",
+            "The Goliath Birdeater is the largest spider in the world. Its legs can span nearly a foot!",
+            "Not all spiders spin webs — some hunt, some trap, some ambush!"
+        ];
+        return facts[Math.floor(Math.random() * facts.length)];
     } else {
         return "Hmmm, I’m still learning. Ask me something else!";
     }
 }
+
